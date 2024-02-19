@@ -211,7 +211,7 @@
   <div class="absolute top-0 left-0 h-screen w-screen">
     <div class="flex justify-center items-center min-h-screen">
       {#if isPlaying && currentIndex !== data.length}
-        <div class="chat chat-start">
+        <div class="chat">
           <div on:click={nextDialogue} class="flex flex-col chat-bubble shader">
             <div class="font-semibold">
               {data[currentIndex].text}
@@ -270,27 +270,23 @@
   }
 
   .chat {
-    @apply grid gap-x-[.6vw] py-[.5vw] fixed left-[calc(55%)] top-[19vw];
-  }
-
-  .chat-start {
-    @apply place-items-start grid-cols-[auto,1fr];
+    @apply grid gap-x-[.6vw] py-[.5vw] fixed left-[calc(55%)] top-[35vh];
   }
 
   .chat-bubble {
-    @apply relative bottom-[1vw] block px-[1vw] py-[.5vw] max-w-[calc(30vw)] rounded-[1vw]
-    min-h-[1vw] min-w-[1vw] bg-white/70 text-neutral-800 text-[1.2vw];
+    @apply relative block px-[1vw] py-[.5vw] max-w-[calc(30vw)] rounded-[1vw]
+    min-h-[1vh] min-w-[1vw] bg-white/70 text-neutral-800 text-[1.2vw];
   }
 
   .chat-bubble::before {
-    @apply absolute bottom-0 h-[1vw] w-[1vw] bg-inherit content-[""];
+    @apply absolute bottom-0 h-[1vh] w-[1vw] bg-inherit content-[""];
   }
 
-  .chat-start .chat-bubble {
+  .chat .chat-bubble {
     @apply col-start-2;
   }
 
-  .chat-start .chat-bubble::before {
+  .chat .chat-bubble::before {
     @apply content-[""] -left-[.675vw] top-[.8vw] bg-transparent;
     width: 0;
     height: 0;
