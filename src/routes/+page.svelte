@@ -89,13 +89,13 @@
     autoplay = !autoplay;
 
     if (autoplay) {
-      audio?.removeEventListener('ended', setEnded);
       if (!audio?.ended) return;
 
       currentIndex++;
       audio!.src = data[currentIndex].audio;
       ended = false;
       audio?.play();
+      audio?.addEventListener('ended', autoplayDialogueAudio);
     } else {
       audio?.addEventListener('ended', setEnded);
     }
