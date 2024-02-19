@@ -66,9 +66,7 @@
 
 		if (!autoplay || data[currentIndex].choices.length) return;
 
-    currentIndex++;
-
-		if (currentIndex === data.length) {
+		if (currentIndex === data.length - 1) {
 			isPlaying = false;
 
 			playState.update((e) => {
@@ -79,6 +77,7 @@
 			return;
 		}
 
+    currentIndex++;
 		audio.src = data[currentIndex].audio;
 
 		setTimeout(() => {
@@ -128,9 +127,7 @@
 	};
 
 	const next = () => {
-		currentIndex++;
-
-		if (currentIndex === data.length) {
+		if (currentIndex === data.length - 1) {
 			isPlaying = false;
 
 			playState.update((e) => {
@@ -141,6 +138,7 @@
 			return;
 		}
 
+    currentIndex++;
 		audio.src = data[currentIndex].audio;
 		audio.play();
 		ended = false;
