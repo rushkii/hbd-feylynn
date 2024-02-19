@@ -5,5 +5,5 @@ import bgmAudio from '$static/audio/constant-moderato.mp3';
 
 
 export const GET = (async () => {
-	return read(bgmAudio);
+  return read(bgmAudio);
 }) satisfies RequestHandler;

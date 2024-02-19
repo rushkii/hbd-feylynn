@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import '../app.css';
-	import { playState } from '$lib/stores';
+  import { onMount } from 'svelte';
+  import '../app.css';
+  import { playState } from '$lib/stores';
 
 
   let isLoading = true;
@@ -23,15 +23,15 @@
     }, 500)
   }
 
-	onMount(() => {
+  onMount(() => {
     isLoading = false;
-		playState.update((e) => {
-			e.audio = new Audio('/stream/bgm');
+    playState.update((e) => {
+      e.audio = new Audio('/stream/bgm');
       e.audio.loop = true;
       e.audio.volume = .3;
-			return e;
-		});
-	});
+      return e;
+    });
+  });
 </script>
 
 <main class="relative flex w-screen min-h-screen font-sans select-none">
@@ -74,21 +74,21 @@
     background-image: linear-gradient(90deg, #ffffff00 0%, #ffffffe2 30%, #ffffffe2 70%, #ffffff00 100%);
   }
 
-	.fade-screen {
-		animation-name: fade-loading;
-		animation-duration: 300ms;
-		animation-timing-function: ease-in-out;
-		animation-fill-mode: forwards;
-		animation-iteration-count: initial;
-		animation-delay: 1000ms;
-	}
+  .fade-screen {
+    animation-name: fade-loading;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: initial;
+    animation-delay: 1000ms;
+  }
 
-	@keyframes fade-loading {
-		80% {
-			@apply opacity-0;
-		}
-		100% {
-			@apply opacity-0 hidden;
-		}
-	}
+  @keyframes fade-loading {
+    80% {
+      @apply opacity-0;
+    }
+    100% {
+      @apply opacity-0 hidden;
+    }
+  }
 </style>

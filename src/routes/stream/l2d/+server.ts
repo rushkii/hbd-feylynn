@@ -5,5 +5,5 @@ import l2dVideo from '$static/video/yuuka-sports.webm';
 
 
 export const GET = (async () => {
-	return read(l2dVideo);
+  return read(l2dVideo);
 }) satisfies RequestHandler;
