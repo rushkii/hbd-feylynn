@@ -88,6 +88,8 @@
   const autoDialogue = () => {
     autoplay = !autoplay;
 
+    if (data[currentIndex].choices.length) return;
+
     if (autoplay) {
       if (!audio?.ended) return;
 
